@@ -38,17 +38,17 @@ function sendWelcomeEmail($toEmail, $username) {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = $_ENV['SMTP_HOST'] ?? 'smtp.titan.email';
+        $mail->Host       = $_ENV['SMTP_HOST'];
         $mail->SMTPAuth   = true;
-        $mail->Username  = $_ENV['SMTP_USER'] ?? 'info@techalphahub.com';
-        $mail->Password  = $_ENV['SMTP_PASS'] ?? 'Uyioobong155@';
+        $mail->Username  = $_ENV['SMTP_USER'] ;
+        $mail->Password  = $_ENV['SMTP_PASS'] ;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = $_ENV['SMTP_PORT'] ?? 465;
+        $mail->Port       = $_ENV['SMTP_PORT'];
 
         // Recipients
         $mail->setFrom(
-            $_ENV['FROM_EMAIL'] ?? 'info@techalphahub.com',
-            $_ENV['FROM_NAME'] ?? 'AuthSystem'
+            $_ENV['FROM_EMAIL'] ,
+            $_ENV['FROM_NAME'] 
         );
         $mail->addAddress($toEmail, $username);
 
